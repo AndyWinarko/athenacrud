@@ -26,8 +26,8 @@ return [
     |
     */
 
-    //'debug' => env('APP_DEBUG', false),
-	'log' => 'errorlog',
+    'debug' => env('APP_DEBUG', true),
+	//'log' => 'errorlog',
     /*
     |--------------------------------------------------------------------------
     | Application URL
