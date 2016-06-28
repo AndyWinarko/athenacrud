@@ -12,9 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
+});
+
+Route::get('/theme', function() {
+    return view('items.listItem');
+});
+Route::get('/create', function() {
+    return view('items.create');
 });
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('items', 'ItemController');
