@@ -80,7 +80,7 @@
               <!-- /.box-body -->
 
               <div class="box-footer">
-                  {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                  {!! Form::submit('Save Record', ['class' => 'btn btn-primary']) !!}
               </div>
             </form>
             {!! Form::close() !!}

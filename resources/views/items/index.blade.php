@@ -9,7 +9,7 @@
           fixed layout if you have a long sidebar. Doing that will prevent your page content from getting stretched
           vertically.</p>
       </div>
-      <a href="{{ route('items.create') }}" class="btn bg-olive margin">Create New</a>
+      <a href="{{ route('items.create') }}" class="btn bg-olive margin">Create New Record</a>
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
@@ -63,13 +63,11 @@
                 <td>{{ $item->keterangan }}</td>
                 <td>
 
-                    <a href="{{ route('items.destroy', $item->id) }}" type="button" class="btn btn-default btn-sm btn-danger">
+                    <a href="{{ route('items.destroy', $item->id) }}" type="button" class="btn bg-maroon btn-sm btn-danger">
                         <span class="glyphicon glyphicon-remove"></span>
-                    </button>
 
-                    <a href="{{ route('items.edit', $item->id) }}" class="btn btn-default btn-sm btn-primary">
+                    <a href="{{ route('items.edit', $item->id) }}" class="btn bg-purple btn-sm btn-primary">
                       <span class="glyphicon glyphicon-edit"></span>
-                    </button>
                 </td>
             </tr>
             @endforeach
