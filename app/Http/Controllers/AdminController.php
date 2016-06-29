@@ -3,45 +3,49 @@
 namespace App\Http\Controllers;
 
 use Session;
-use App\Item;
 use Illuminate\Http\Request;
+use App\User;
 
 use App\Http\Requests;
 
-class ItemController extends Controller
+class AdminController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function home()
-    {
-
-    }
-
     public function index()
     {
-        $items = Item::paginate(15);
-        return view('items.index')->withItems($items);
+        $users = User::paginate(10);
+        return view('admin.index')->withUsers($users);
     }
 
     public function create()
     {
-        return view('items.create');
+        return view('admin.create');
     }
 
     public function store(Request $request)
     {
         //dd($request->input());
         $this->validate($request, [
-            'id_bmn' => 'required'
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
         ]);
 
-        $input = $request->all();
-        item::create($input);
+        // check if email exist
+        $user = User::where('email', $request->email)->count();
+        if($user == 1) {
+            Session::flash('flash_message','Email Already Exists!');
+            return redirect()->back();
+        }
 
-        Session::flash('flash_message','Task Succesfully Added!');
+        $input = $request->all();
+        User::create($input);
+
+        Session::flash('flash_message','User Succesfully Added!');
 
         return redirect()->back();
 
@@ -50,13 +54,13 @@ class ItemController extends Controller
     public function show($id)
     {
         $item = Items::find($id);
-        return view('items.show')->withItem($task);
+        return view('admin.show')->withItem($task);
     }
 
     public function edit($id)
     {
         $item = Item::findOrFail($id);
-        return view('items.edit')->withItem($item);
+        return view('admin.edit')->withItem($item);
     }
 
     public function update(Request $request, $id)
@@ -69,7 +73,7 @@ class ItemController extends Controller
 
         $input = $request->all();
         $item->fill($input)->save();
-        Session::flash('flash_message','Task successfully edited!');
+        Session::flash('flash_message','Admin successfully edited!');
 
         return redirect()->back();
     }
@@ -81,6 +85,6 @@ class ItemController extends Controller
 
         Session::flash('flash_message','Item successfully Delete');
 
-        return redirect()->route('items.index');
+        return redirect()->route('admin.index');
     }
 }

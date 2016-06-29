@@ -62,12 +62,20 @@
                 <td>{{ $item->total_rupiah }}</td>
                 <td>{{ $item->keterangan }}</td>
                 <td>
+                    <div class="btn-group">
+                        <a href="{{ route('items.destroy', $item->id) }}" type="button" class="btn bg-maroon btn-sm btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                        <a href="{{ route('items.edit', $item->id) }}" type="button" class="btn bg-purple btn-sm btn-primary">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                    </div>
 
-                    <a href="{{ route('items.destroy', $item->id) }}" type="button" class="btn bg-maroon btn-sm btn-danger">
+                    <!-- <a href="{{ route('items.destroy', $item->id) }}" type="button" class="btn bg-maroon btn-sm btn-danger">
                         <span class="glyphicon glyphicon-remove"></span>
 
                     <a href="{{ route('items.edit', $item->id) }}" class="btn bg-purple btn-sm btn-primary">
-                      <span class="glyphicon glyphicon-edit"></span>
+                      <span class="glyphicon glyphicon-edit"></span> -->
                 </td>
             </tr>
             @endforeach

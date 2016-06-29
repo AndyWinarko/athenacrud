@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>AdminBMN</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -46,7 +46,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>B</b>MN</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>BMN</span>
+      <span class="logo-lg"><b>CMS</b>BMN</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -61,7 +61,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo asset('assets/dist/img/user2-160x160.jpg'); ?>" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -69,8 +69,8 @@
                 <img src="<?php echo asset('assets/dist/img/user2-160x160.jpg'); ?>" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{ Auth::user()->name }}
+                  <!-- <small>Member since Nov. 2012</small> -->
                 </p>
               </li>
               <!-- Menu Footer-->
@@ -102,7 +102,7 @@
           <img src="<?php echo asset('assets/dist/img/user2-160x160.jpg'); ?>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>{{ Auth::user()->name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -120,14 +120,21 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Manage</span> <i class="fa fa-angle-left pull-right"></i>
+        <li>
+          <a href="{{ route('items.index') }}">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="{{ route('items.index') }}"><i class="fa fa-circle-o"></i> Items</a></li>
-            <!-- <li><a href="{{ route('items.create') }}"><i class="fa fa-circle-o"></i> Users</a></li> -->
-          </ul>
+
+          <li>
+              <a href="{{ route('items.index') }}">
+                  <i class="fa fa-th"></i> <span>Items BMN</span>
+              </a>
+          </li>
+          <li>
+          <a href="{{ route('admin.index') }}">
+            <i class="fa fa-table"></i> <span>Manage Admin</span>
+          </a>
+        </li>
         </li>
       </ul>
     </section>
