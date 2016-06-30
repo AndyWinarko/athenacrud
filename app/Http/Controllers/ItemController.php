@@ -33,7 +33,8 @@ class ItemController extends Controller
         return view('items.index', [
             'items' => $items,
             'index' => $items->firstItem()
-        ]);
+	]);
+
     }
 
     public function create()
