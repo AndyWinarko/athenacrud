@@ -2,7 +2,6 @@
 
 @section('content')
 <section class="content">
-
     @if(Session::has('flash_message'))
         <div class="alert alert-success">
             {{ Session::get('flash_message') }}
@@ -27,7 +26,7 @@
             <!-- /.box-header -->
             <!-- form start -->
             {!! Form::open([
-                'route' => 'admin.store'
+                'route' => 'admin.edit'
             ]) !!}
             <form role="form">
               <div class="box-body">
@@ -43,16 +42,12 @@
                     {!! Form::label('title', 'password', ['class' => 'control-label']) !!}
                     {!! Form::password('password', ['class' => 'form-control password']) !!}
                 </div>
-                <div class="form-group">
-                    {!! Form::label('title', 'Role', ['class' => 'control-label']) !!}
-                    {!! Form::select('role', ['superadmin' => 'superadmin', 'admin' => 'admin', 'guest' => 'guest'], null, ['class' => 'form-control'] ) !!}
-                </div>
 
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer">
-                  {!! Form::submit('Save Record', ['class' => 'btn btn-primary']) !!}
+                  {!! Form::submit('Update Record', ['class' => 'btn btn-primary']) !!}
               </div>
             </form>
             {!! Form::close() !!}

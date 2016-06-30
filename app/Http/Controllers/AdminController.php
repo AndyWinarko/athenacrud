@@ -18,7 +18,11 @@ class AdminController extends Controller
     public function index()
     {
         $users = User::paginate(10);
-        return view('admin.index')->withUsers($users);
+
+        return view('admin.index', [
+            'users' => $users,
+            'index' => $users->firstItem()
+        ]);
     }
 
     public function create()
@@ -35,6 +39,12 @@ class AdminController extends Controller
             'password' => 'required'
         ]);
 
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ];
+
         // check if email exist
         $user = User::where('email', $request->email)->count();
         if($user == 1) {
@@ -42,8 +52,10 @@ class AdminController extends Controller
             return redirect()->back();
         }
 
-        $input = $request->all();
-        User::create($input);
+        //$input = $request->all();
+        $user = User::create($data);
+
+        $user->assignRole($request->role);
 
         Session::flash('flash_message','User Succesfully Added!');
 
@@ -53,26 +65,34 @@ class AdminController extends Controller
 
     public function show($id)
     {
-        $item = Items::find($id);
-        return view('admin.show')->withItem($task);
+        $user = User::find($id);
+        return view('admin.show')->withItem($user);
     }
 
     public function edit($id)
     {
-        $item = Item::findOrFail($id);
-        return view('admin.edit')->withItem($item);
+        $user = User::findOrFail($id);
+        return view('admin.edit')->withUser($user);
     }
 
     public function update(Request $request, $id)
     {
-        $item = Item::findOrFail($id);
+        $item = User::findOrFail($id);
 
         $this->validate($request, [
-            'id_bmn' => 'required'
+            'email' => 'required',
+            'password' => 'required'
         ]);
 
-        $input = $request->all();
-        $item->fill($input)->save();
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'remember_token' => '',
+        ];
+
+        //$input = $request->all();
+        $item->fill($data)->save();
         Session::flash('flash_message','Admin successfully edited!');
 
         return redirect()->back();
@@ -80,8 +100,8 @@ class AdminController extends Controller
 
     public function destroy($id)
     {
-        $item = Item::findOrFail($id);
-        $item->delete();
+        $user = User::findOrFail($id);
+        $user->delete();
 
         Session::flash('flash_message','Item successfully Delete');
 

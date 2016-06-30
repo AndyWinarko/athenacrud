@@ -20,10 +20,20 @@ class ItemController extends Controller
 
     }
 
-    public function index()
+    public function index(Request $request)
     {
+
         $items = Item::paginate(15);
-        return view('items.index')->withItems($items);
+
+        if($request->input('q')){
+            $items = Item::search($request->input('q'))
+                        ->paginate(15);
+        }
+
+        return view('items.index', [
+            'items' => $items,
+            'index' => $items->firstItem()
+        ]);
     }
 
     public function create()
@@ -33,7 +43,6 @@ class ItemController extends Controller
 
     public function store(Request $request)
     {
-        //dd($request->input());
         $this->validate($request, [
             'id_bmn' => 'required'
         ]);
@@ -49,7 +58,7 @@ class ItemController extends Controller
 
     public function show($id)
     {
-        $item = Items::find($id);
+        $item = Item::find($id);
         return view('items.show')->withItem($task);
     }
 
@@ -82,5 +91,10 @@ class ItemController extends Controller
         Session::flash('flash_message','Item successfully Delete');
 
         return redirect()->route('items.index');
+    }
+
+    public function printReport(Request $request)
+    {
+        echo $request->input('q');
     }
 }

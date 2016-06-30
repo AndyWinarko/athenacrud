@@ -14,7 +14,7 @@
     <div class="col-md-8">
         <div class="box">
               <div class="box-header with-border">
-                <h3 class="box-title">Bordered Table</h3>
+                <h3 class="box-title">Admin List</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -28,16 +28,17 @@
 
                   @foreach($users as $user)
                   <tr>
-                    <td>{{ $user->id }}</td>
+                    <td>{{ $index++}}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
 
                     <div class="btn-group">
-                        <a href="{{ route('admin.destroy', $user->id) }}" type="button" class="btn bg-maroon btn-sm btn-danger">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </a>
-                        <a href="{{ route('admin.destroy', $user->id) }}" type="button" class="btn bg-purple btn-sm btn-primary">
+                        {!! Form::open([ 'method' => 'DELETE', 'route' => ['admin.destroy', $user->id] ]) !!}
+                        {!! Form::submit('X', ['class' => 'btn bg-maroon btn-sm btn-danger']) !!}
+                        {!! Form::close() !!}
+
+                        <a href="{{ route('admin.edit', $user->id) }}" type="button" class="btn bg-purple btn-sm btn-primary">
                             <span class="glyphicon glyphicon-edit">
                         </a>
                     </div>

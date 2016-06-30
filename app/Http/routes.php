@@ -24,5 +24,7 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('items', 'ItemController');
+Route::get('/print', 'PrintReportController@index');
+Route::get('/print/table', 'PrintReportController@printtable');
 
 Route::resource('admin', 'AdminController');

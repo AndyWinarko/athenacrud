@@ -10,6 +10,8 @@
           vertically.</p>
       </div>
       <a href="{{ route('items.create') }}" class="btn bg-olive margin">Create New Record</a>
+      <a href="{{ url('print?q='. Request::input('q')) }}" class="btn bg-blue margin">Print</a>
+
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
@@ -17,13 +19,15 @@
           <h3 class="box-title">All Data BMN</h3>
 
           <div class="box-tools">
-            <div class="input-group input-group-sm" style="width: 150px;">
-              <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-              <div class="input-group-btn">
-                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-              </div>
+            <form method="get">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="q" class="form-control pull-right" placeholder="Search" value="{{ Request::input('q') }}">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </div>
             </div>
+            </form>
+
           </div>
         </div>
         <!-- /.box-header -->
@@ -48,7 +52,7 @@
 
             @foreach($items as $item)
             <tr>
-                <th scope="row">{{ $item->id }}</th>
+                <th scope="row">{{ $index++}}</th>
                 <td>{{ $item->id_bmn }}</td>
                 <td>{{ $item->nama_bmn }}</td>
                 <td>{{ $item->type }}</td>
@@ -63,12 +67,17 @@
                 <td>{{ $item->keterangan }}</td>
                 <td>
                     <div class="btn-group">
-                        <a href="{{ route('items.destroy', $item->id) }}" type="button" class="btn bg-maroon btn-sm btn-danger">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </a>
+
+                            {!! Form::open([ 'method' => 'DELETE', 'route' => ['items.destroy', $item->id] ]) !!}
+                            {!! Form::submit('X', ['class' => 'btn bg-maroon btn-sm btn-danger']) !!}
+                            {!! Form::close() !!}
+
+
+
                         <a href="{{ route('items.edit', $item->id) }}" type="button" class="btn bg-purple btn-sm btn-primary">
                             <span class="glyphicon glyphicon-edit"></span>
                         </a>
+
                     </div>
 
                     <!-- <a href="{{ route('items.destroy', $item->id) }}" type="button" class="btn bg-maroon btn-sm btn-danger">
@@ -82,6 +91,7 @@
 
 
           </tbody></table>
+
         </div>
         {!! $items->render() !!}
         <!-- /.box-body -->

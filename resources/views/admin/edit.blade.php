@@ -25,8 +25,9 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            {!! Form::open([
-                'route' => 'admin.edit'
+            {!! Form::model($user, [
+                'method' => 'PATCH',
+                'route' => ['admin.update', $user->id]
             ]) !!}
             <form role="form">
               <div class="box-body">

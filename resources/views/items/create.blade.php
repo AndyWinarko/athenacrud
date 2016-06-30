@@ -51,7 +51,7 @@
                 </div>
                 <div class="form-group">
                     {!! Form::label('title', 'Kondisi Barang', ['class' => 'control-label']) !!}
-                    {!! Form::select('kondisi', ['B' => '(B) Bagus', 'RR' => 'RR', 'RB' => 'Rusak Berat'], null, ['class' => 'form-control'] ) !!}
+                    {!! Form::select('kondisi', ['B' => 'Bagus', 'RR' => 'Rusak', 'RB' => 'Rusak Berat'], null, ['class' => 'form-control'] ) !!}
                 </div>
 
                 <div class="form-group">
