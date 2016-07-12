@@ -28,8 +28,11 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>CMS</b>BMN</a>
+      <img src="<?php echo asset('assets/dist/img/kementrian.jpeg'); ?>" alt="Smiley face" height="200" width="360">
+
+      <a href="#">Aplikasi BMN Deputi Bidang Perlindungan Anak</a>
   </div>
+
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>

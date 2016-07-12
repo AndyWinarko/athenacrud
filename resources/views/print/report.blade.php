@@ -45,7 +45,7 @@
       <div class="row invoice-info" style="text-align: center;">
         <div class="col-sm-12 invoice-col">
             <strong>KEMENTERIAN PEMBERDAYAAN PEREMPUAN DAN PERLINDUNGAN ANAK REPUBLIK INDONESIA</strong><br>
-            <strong>SATKER ASDEP PERLINDUNGAN ABK</strong>
+            <strong>SATKER DEPUTI BIDANG PERLINDUNGAN ANAK</strong>
             <br><br>
             <strong>DAFTAR INVENTARISASI FISIK BMN</strong>
 
@@ -58,7 +58,7 @@
       <!-- Table row -->
       <div class="row">
         <div class="col-xs-12 table-responsive">
-          <table class="table table-striped">
+          <table class="table table-bordered">
             <thead>
             <tr>
               <th>No.</th>
