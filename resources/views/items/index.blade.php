@@ -2,14 +2,9 @@
 
 @section('content')
 <section class="content">
-    <div class="callout callout-info">
-        <h4>Tip!</h4>
-
-        <p>Add the sidebar-collapse class to the body tag to get this layout. You should combine this option with a
-          fixed layout if you have a long sidebar. Doing that will prevent your page content from getting stretched
-          vertically.</p>
-      </div>
+    @can('create_data')
       <a href="{{ route('items.create') }}" class="btn bg-olive margin">Create New Record</a>
+    @endcan
       <a href="{{ url('print?q='. Request::input('q')) }}" class="btn bg-blue margin">Print</a>
 
   <div class="row">
@@ -67,16 +62,17 @@
                 <td>{{ $item->keterangan }}</td>
                 <td>
                     <div class="btn-group">
-
+                        @can('delete_data')
                             {!! Form::open([ 'method' => 'DELETE', 'route' => ['items.destroy', $item->id] ]) !!}
                             {!! Form::submit('X', ['class' => 'btn bg-maroon btn-sm btn-danger']) !!}
                             {!! Form::close() !!}
+                        @endcan
 
-
-
+                        @can('edit_data')
                         <a href="{{ route('items.edit', $item->id) }}" type="button" class="btn bg-purple btn-sm btn-primary">
                             <span class="glyphicon glyphicon-edit"></span>
                         </a>
+                        @endcan
 
                     </div>
 

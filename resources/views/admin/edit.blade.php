@@ -43,6 +43,10 @@
                     {!! Form::label('title', 'password', ['class' => 'control-label']) !!}
                     {!! Form::password('password', ['class' => 'form-control password']) !!}
                 </div>
+                <div class="form-group">
+                    {!! Form::label('title', 'Role', ['class' => 'control-label']) !!}
+                    {!! Form::select('role', ['superadmin' => 'superadmin', 'admin' => 'admin', 'guest' => 'guest'], null, ['class' => 'form-control'] ) !!}
+                </div>
 
               </div>
               <!-- /.box-body -->

@@ -92,7 +92,15 @@ class AdminController extends Controller
         ];
 
         //$input = $request->all();
+
         $item->fill($data)->save();
+
+        $user = User::whereName($data['name'])->firstOrFail();
+        if($user){
+            $user->unassignRole();
+        }
+        $user->assignRole($request->role);
+
         Session::flash('flash_message','Admin successfully edited!');
 
         return redirect()->back();

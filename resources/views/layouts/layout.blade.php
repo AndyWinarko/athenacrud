@@ -133,9 +133,11 @@
           @endcan
           </li>
           <li>
+         @can('read_admin')
           <a href="{{ route('admin.index') }}">
             <i class="fa fa-table"></i> <span>Manage Admin</span>
           </a>
+        @endcan
         </li>
         </li>
       </ul>

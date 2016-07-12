@@ -43,6 +43,11 @@ class User extends Authenticatable implements AuthenticatableContract,
         );
     }
 
+    public function unassignRole()
+    {
+        return $this->roles()->detach();
+    }
+
     public function hasRole($role)
     {
         if(is_string($role)) {
