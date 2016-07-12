@@ -126,9 +126,11 @@
           </a>
 
           <li>
+          @can('read_data')
               <a href="{{ route('items.index') }}">
                   <i class="fa fa-th"></i> <span>Items BMN</span>
               </a>
+          @endcan
           </li>
           <li>
           <a href="{{ route('admin.index') }}">
