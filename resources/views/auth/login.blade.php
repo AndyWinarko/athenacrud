@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,12 +24,11 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image:url(<?php echo asset('assets/dist/img/background_image.jpg'); ?>)">
 <div class="login-box">
   <div class="login-logo">
-      <img src="<?php echo asset('assets/dist/img/kementrian.jpeg'); ?>" alt="Smiley face" height="200" width="360">
-
-      <a href="#">Aplikasi BMN Deputi Bidang Perlindungan Anak</a>
+	</br></br></br></br>	
+      <!--<a href="#">Aplikasi BMN Deputi Bidang Perlindungan Anak</a>-->
   </div>
 
   <!-- /.login-logo -->
