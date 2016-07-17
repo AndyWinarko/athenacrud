@@ -5,9 +5,43 @@
     @can('create_data')
       <a href="{{ route('items.create') }}" class="btn bg-olive margin">Create New Record</a>
     @endcan
-      <a href="{{ url('print?q='. Request::input('q')) }}" class="btn bg-blue margin">Print</a>
+      <a href="{{ url('print?q='. Request::input('q') .'&searchBy=' . Request::input('searchBy')) }}" class="btn bg-blue margin">Print</a>
 
   <div class="row">
+
+      <div class="col-md-3">
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Search Box</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body" style="display: block;">
+                <form method="get">
+                    <div class="form-group">
+                        {!! Form::label('title', 'Search By', ['class' => 'control-label']) !!}
+                        {!! Form::select('searchBy', ['id_bmn' => 'Kode BMN', 'nama_bmn' => 'Nama BMN', 'tahun' => 'Tahun'], null, ['class' => 'form-control'] ) !!}
+                    </div>
+                <div class="box-tools">
+                      <div class="input-group input-group-sm" style="width: 260px;">
+                          <input type="text" name="q" class="form-control pull-right" placeholder="Search" value="{{ Request::input('q') }}">
+                          <div class="input-group-btn">
+                              <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                          </div>
+                  </div>
+                </div>
+                </form>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header">
@@ -22,7 +56,6 @@
                     </div>
             </div>
             </form>
-
           </div>
         </div>
         <!-- /.box-header -->

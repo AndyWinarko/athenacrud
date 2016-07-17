@@ -32,8 +32,8 @@ class Item extends Model
 
     //protected $dates = ['deleted_at'];
 
-    public function scopeSearch($query, $keyword)
+    public function scopeSearch($query, $keyword, $searchBy)
     {
-        $query->where('nama_bmn', 'ILIKE', '%'.$keyword.'%');
+        $query->where($searchBy, 'ILIKE', '%'.$keyword.'%');
     }
 }

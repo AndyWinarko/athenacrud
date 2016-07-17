@@ -15,18 +15,12 @@ class ItemController extends Controller
         $this->middleware('auth');
     }
 
-    public function home()
-    {
-
-    }
-
     public function index(Request $request)
     {
-
         $items = Item::paginate(15);
 
         if($request->input('q')){
-            $items = Item::search($request->input('q'))
+            $items = Item::search($request->input('q'), $request->searchBy)
                         ->paginate(15);
         }
 

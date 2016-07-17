@@ -16,7 +16,8 @@ class printReportController extends Controller
         $items = Item::all();
 
         if($request->input('q')){
-            $items = Item::search($request->input('q'))->get();
+            $items = Item::search($request->input('q'), $request->searchBy)
+                           ->get();
         }
 
         $index = 1;
