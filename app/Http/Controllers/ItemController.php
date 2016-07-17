@@ -38,9 +38,9 @@ class ItemController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'id_bmn' => 'required'
-        ]);
+        // $this->validate($request, [
+        //     'id_bmn' => 'required'
+        // ]);
 
         $input = $request->all();
         item::create($input);
@@ -67,9 +67,9 @@ class ItemController extends Controller
     {
         $item = Item::findOrFail($id);
 
-        $this->validate($request, [
-            'id_bmn' => 'required'
-        ]);
+        // $this->validate($request, [
+        //     'id_bmn' => 'required'
+        // ]);
 
         $input = $request->all();
         $item->fill($input)->save();
