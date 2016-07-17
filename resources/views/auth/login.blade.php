@@ -24,10 +24,10 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition login-page" style="background-image:url(<?php echo asset('assets/dist/img/background_image.jpg'); ?>)">
+<body class="hold-transition login-page" style="background-image:url(<?php echo asset('assets/dist/img/semogapas.jpg'); ?>)">
 <div class="login-box">
   <div class="login-logo">
-	</br></br></br></br>	
+	</br></br>
       <!--<a href="#">Aplikasi BMN Deputi Bidang Perlindungan Anak</a>-->
   </div>
 
