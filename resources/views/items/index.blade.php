@@ -46,17 +46,6 @@
       <div class="box">
         <div class="box-header">
           <h3 class="box-title">All Data BMN</h3>
-
-          <div class="box-tools">
-            <form method="get">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="q" class="form-control pull-right" placeholder="Search" value="{{ Request::input('q') }}">
-                    <div class="input-group-btn">
-                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                    </div>
-            </div>
-            </form>
-          </div>
         </div>
         <!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
