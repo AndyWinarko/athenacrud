@@ -28,18 +28,16 @@
       <!-- title row -->
       <div class="row">
         <div class="col-xs-12">
-
+            <h2 class="page-header">
+              <img src="<?php echo asset('assets/dist/img/Logo_Kemen_PPPA.png'); ?>" height="100">
+              <small class="pull-right">Date: <?php echo date('Y-m-d H:i:s');?></small>
+            </h2>
         </div>
         <!-- /.col -->
       </div>
       <!-- info row -->
       <div class="col-sm-4 invoice-col">
         <address>
-          <strong>                                                       </strong><br>
-                        <br>
-                        <br>
-                        <br>
-
         </address>
       </div>
       <div class="row invoice-info" style="text-align: center;">
