@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - athenaDB@localhost" uuid="98cde7c7-cde1-4c2e-9a62-18458a26d6dc">
+      <secret-storage>master_key</secret-storage>
+      <user-name>andy</user-name>
+      <introspection-scope>athenaDB:andy,pg_catalog,public</introspection-scope>
+      <resolve-scope>athenaDB:andy,public</resolve-scope>
+    </data-source>
+  </component>
+</project>

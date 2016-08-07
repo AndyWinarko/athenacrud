@@ -92,4 +92,5 @@ class ItemController extends Controller
     {
         echo $request->input('q');
     }
+
 }
